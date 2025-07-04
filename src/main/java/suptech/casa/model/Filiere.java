@@ -20,6 +20,6 @@ public class Filiere {
 Long id;
 String nom;
 @OneToMany(mappedBy = "filiere",cascade = CascadeType.REMOVE)
-@JsonIgnore
+@JsonIgnore //Pour demander Jackson d'ignorer le champs
 List<Etudiant> etudiants;
 }
