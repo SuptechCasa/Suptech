@@ -19,9 +19,9 @@ import suptech.casa.service.EtudiantService;
 @AllArgsConstructor
 public class EtudiantController {
 	final EtudiantService etudiantService;
-	@GetMapping("etudiants/{page}/{size}")
-	public List<Etudiant> getAllEtudiantsPages(@PathVariable int page, @PathVariable int size) {
-		return etudiantService.getAllEtudiants(page, size);
+	@GetMapping("etudiants/{page}/{size}/{field}")
+	public List<Etudiant> getAllEtudiantsPages(@PathVariable int page, @PathVariable int size,@PathVariable String field) {
+		return etudiantService.getAllEtudiants(page, size, field);
 	}
 	
 	//Ajouter un nouvel étudiant
