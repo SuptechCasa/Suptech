@@ -14,6 +14,7 @@ public class Etudiant {
 Long id;
 String nom;
 double note;
+String photo;
 @ManyToOne
 Filiere filiere;
 }
