@@ -2,6 +2,8 @@ package suptech.casa.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -17,8 +19,9 @@ public class EtudiantService {
 		return etudiantRepository.save(etudiant);
 	}
 	
-	public List<Etudiant> getAllEtudiants(){
-		return etudiantRepository.findAll();
+	public List<Etudiant> getAllEtudiants(int page, int size){
+		Pageable pages=PageRequest.of(page, size);
+		return etudiantRepository.findAll(pages).getContent();
 	}
 	
 	public boolean deleteById(Long id) {

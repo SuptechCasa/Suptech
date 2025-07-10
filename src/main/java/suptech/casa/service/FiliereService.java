@@ -24,6 +24,11 @@ public class FiliereService {
 	public Filiere getFiliereByNom(String nomFil) {
 		return filiereRepository.findByNom(nomFil);
 	}
+
+	public boolean deleteFiliereById(Long id) {
+		filiereRepository.deleteById(id);
+		return !filiereRepository.existsById(id);
+	}
 	
 	
 	

@@ -5,11 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 import suptech.casa.model.Etudiant;
 import suptech.casa.model.Filiere;
+import suptech.casa.repository.FiliereRepository;
 import suptech.casa.service.EtudiantService;
 import suptech.casa.service.FiliereService;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +40,12 @@ public class FiliereController {
 		if (filiere==null) return null;
 		etudiant.setFiliere(filiere);
 		return etudiantService.addEtudiant(etudiant);
+	}
+	
+	//Supprimer une filière
+	@DeleteMapping("filieres/{id}")
+	public boolean deleteFiliereById(@PathVariable Long id) {
+		return filiereService.deleteFiliereById(id);
 	}
 	
 	
