@@ -1,5 +1,6 @@
 package suptech.casa.service;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +27,9 @@ public class EtudiantService {
 	}
 	
 	public boolean deleteById(Long id) {
+		String path="./src/main/resources/static/photos/"+id+".png";
+		File file=new File(path);
+		if (file.exists()) file.delete();
 		etudiantRepository.deleteById(id);
 		return !etudiantRepository.existsById(id);
 	}
