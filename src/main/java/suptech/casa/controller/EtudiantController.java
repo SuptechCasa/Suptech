@@ -31,6 +31,11 @@ public class EtudiantController {
 		return etudiantService.getAllEtudiants(page, size, field);
 	}
 	
+	@GetMapping("etudiants")
+	public List<Etudiant> getAllEtudiants() {
+		return etudiantService.getAllEtudiants();
+	}
+	
 	@DeleteMapping("etudiants/{id}")
 	public boolean deleteEtudiant(@PathVariable Long id) {
 		return etudiantService.deleteById(id);
@@ -53,7 +58,7 @@ public class EtudiantController {
 		return etudiantService.getByNomLike(nom);
 	}
 	
-	@GetMapping("etudiants/photos/{id}")
+	@GetMapping("photos/{id}")
 	public ResponseEntity<Resource> getImage(@PathVariable Long id) {
 		String path="./src/main/resources/static/photos/"+id+".png";
 		FileSystemResource file=new FileSystemResource(path);

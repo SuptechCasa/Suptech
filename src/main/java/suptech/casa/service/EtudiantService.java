@@ -46,4 +46,8 @@ public class EtudiantService {
 		return etudiantRepository.findByNomLike(nom);
 	}
 
+	public List<Etudiant> getAllEtudiants() {
+		return etudiantRepository.findAll();
+	}
+
 }
